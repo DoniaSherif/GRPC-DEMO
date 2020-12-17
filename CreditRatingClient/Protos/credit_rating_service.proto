@@ -1,0 +1,22 @@
+// Protos/credit-rating-service.proto
+//The first two rows of the .proto file declare the Protobuf syntax version you want to use 
+//and the C# namespace where the interface will be implemented into.
+syntax = "proto3";
+
+option csharp_namespace = "CreditRatingService";
+
+package CreditRating;
+
+//The RPC service interface 
+service CreditRatingCheck {
+  rpc CheckCreditRequest (CreditRequest) returns (CreditReply);
+}
+
+message CreditRequest {
+  string customerId = 1;
+  int32 credit = 2;
+}
+
+message CreditReply {
+  bool isAccepted = 1;
+}
